@@ -1,3 +1,3 @@
-module AssertActiverecord4
+module AssertActiveRecord4
   VERSION = "0.0.1"
 end

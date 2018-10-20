@@ -1,6 +1,6 @@
-# AssertActiverecord4
+# AssertActiveRecord4
 
-TODO: Write a gem description
+AssertActiveRecord adapter for ActiveRecord 4.  See https://github.com/redding/assert-activerecord for reference.
 
 ## Usage
 
