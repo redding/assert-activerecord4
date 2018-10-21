@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency("assert", ["~> 2.17.0"])
 
-  gem.add_dependency("activerecord", ["~> 4.0"])
+  gem.add_dependency("activerecord",        ["~> 4.0"])
+  gem.add_dependency("assert-activerecord", ["~> 0.0.1"])
 
 end
