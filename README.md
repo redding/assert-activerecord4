@@ -4,7 +4,15 @@ AssertActiveRecord adapter for ActiveRecord 4.  See https://github.com/redding/a
 
 ## Usage
 
-TODO: Write code samples and usage instructions here
+### Reset the test db for test runs
+
+```ruby
+# in test/helper.rb
+require "assert-activerecord4"
+AssertActiveRecord.reset_db
+```
+
+TODO: transactional DbTests
 
 ## Installation
 
