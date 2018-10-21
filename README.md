@@ -12,7 +12,30 @@ require "assert-activerecord4"
 AssertActiveRecord.reset_db
 ```
 
-TODO: transactional DbTests
+### Running database tests in a transaction
+
+```ruby
+# in test/helper.rb
+require "assert-activerecord4"
+class DbTests < AssertActiveRecord::DbTests
+  # put any extra setup / teardown logic here
+end
+```
+
+Then in a test that needs to interact with the database:
+
+```ruby
+require "assert"
+require "blog_record"
+
+class BlogRecord
+
+  class SystemTests < DbTests
+    # all tests in this context will be run in a transaction
+  end
+
+end
+```
 
 ## Installation
 

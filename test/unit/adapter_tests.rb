@@ -47,8 +47,9 @@ class AssertActiveRecord4::Adapter
     subject{ @adapter }
 
     should have_imeths :drop_db, :create_db, :load_schema, :connect_db
+    should have_imeths :transaction, :rollback!
 
-    should "be able to drop a db" do
+    should "know how to drop a db" do
       assert_equal 0, @tasks_spy.drop_current_called_count
 
       subject.drop_db
@@ -87,6 +88,24 @@ class AssertActiveRecord4::Adapter
 
       exp = [subject.test_env_name]
       assert_equal exp, @establish_connection_called_with
+    end
+
+    should "know how to run a transaction block" do
+      ar_transaction_called = false
+      Assert.stub(ActiveRecord::Base, :transaction) do |&block|
+        ar_transaction_called = true
+        block.call
+      end
+
+      block_yielded_to = false
+      subject.transaction{ block_yielded_to = true }
+
+      assert_true ar_transaction_called
+      assert_true block_yielded_to
+    end
+
+    should "know how to trigger a transaction rollback" do
+      assert_raises(ActiveRecord::Rollback){ subject.rollback! }
     end
 
   end
