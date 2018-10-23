@@ -32,6 +32,14 @@ module AssertActiveRecord4
       ActiveRecord::Base.establish_connection(self.test_env_name)
     end
 
+    def transaction(&block)
+      ActiveRecord::Base.transaction(&block)
+    end
+
+    def rollback!
+      raise ActiveRecord::Rollback
+    end
+
   end
 
 end
