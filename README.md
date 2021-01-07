@@ -1,3 +1,5 @@
+=== **This has been archived and is not maintained.** ===
+
 # AssertActiveRecord4
 
 AssertActiveRecord adapter for ActiveRecord 4.  See https://github.com/redding/assert-activerecord for reference.
